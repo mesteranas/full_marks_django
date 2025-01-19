@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+{% load i18n %}
+    <title>{% block title %}
+        {%trans "home"%}
+    {% endblock %} - full marks</title>
+
+    <link rel="stylesheet" href="/en/static/css/stile.css">
+    </head>
+<body>
+    <header id="header">
+        <h1>full marks</h1>
+        <p><a href="#content">{%trans "skip to content"%}</a></p>
+        <p><a href="#footer">{%trans "skip to footer"%}</a></p>
+    </header>
+    <nav>
+        <h2>{%trans "navigation bar"%}</h2>
+        <ul class="navBar">
+        <li><a href="{% url 'homePage'%}">{%trans "home"%}</a></li>
+        <li><a href="{% url "contect"%}">{%trans "contect"%}</a></li>
+        <li><a href="{%url "about"%}">{%trans "about"%}</a></li>
+    </ul>
+    </nav>
+    <section id="content"></section>
+    {%block content%}
+    {%if user.is_authenticated%}
+        <h1>{% trans "welcome "%} {{user.username}}</h1>
+        <ul class="navBar">
+            <li><a href="{% url "notesCategory"%}">{% trans "notes"%}</a></li>
+        </ul>
+    {% else %}
+        <h1>{%trans "login" %}</h1>
+        <form method="post">
+            {%csrf_token%}
+            <label for="id_username">{% trans "user name"%}</label>
+            <input type="text" id="id_username" name="username" required>
+            <label for="id_password">{% trans "password"%}</label>
+            <input type="password" id="id_password" name="password" required>
+            <button type="submit">{% trans "login"%}</button>
+        </form>
+    {% endif%}
+    
+    </section>
+    {%endblock%}
+    <footer id="footer">
+        <a href="{%url "changeLanguage"%}">{% trans "change language"%}</a>
+        <br>
+        <h2>{%trans "footer"%}</h2>
+        <p><a href="#header">{%trans "skip to top"%}</a></p>
+        <p><a href="https://www.paypal.me/AMohammed231">{%trans "donate"%}</a></p>
+    <p>&copy; 2024 mesteranas sites</p>
+    </footer>
+    <script src="/en/static/javascript/script.js"></script>
+</body>
+</html>

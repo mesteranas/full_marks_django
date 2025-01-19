@@ -1,0 +1,12 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{% trans "rename category"%}{% endblock%}
+{% block content%}
+<h1>{% trans "rename category"%}</h1>
+<form method="post">
+    {%csrf_token%}
+    <label for="id_name">{% trans "name"%}</label>
+    <input type="text" maxlength="200" id="id_name" name="name" required value="{{category.name}}">
+    <button type="submit">{% trans "rename"%}</button>
+</form>
+{% endblock%}

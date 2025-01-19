@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-09 21:54+0200\n"
+"PO-Revision-Date: 2024-04-09 21:55+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#: .\templates\about.html:4 .\templates\about.html:7 .\templates\home.html:22
+msgid "about"
+msgstr "حول"
+
+#: .\templates\about.html:8
+msgid "description:"
+msgstr "الوصف:"
+
+#: .\templates\about.html:9
+msgid "no"
+msgstr ""
+
+#: .\templates\about.html:10
+msgid "version :"
+msgstr "الإصدار:"
+
+#: .\templates\changeLanguage.html:3 .\templates\home.html:31
+msgid "change language"
+msgstr "تغيير اللغة"
+
+#: .\templates\changeLanguage.html:10
+msgid "language"
+msgstr "اللغة"
+
+#: .\templates\changeLanguage.html:17
+msgid "change"
+msgstr "تغيير"
+
+#: .\templates\contect.html:4 .\templates\contect.html:7
+#: .\templates\home.html:21
+msgid "contect"
+msgstr "طواصل"
+
+#: .\templates\contect.html:10
+msgid "telegram channel"
+msgstr "قناة التليجرام"
+
+#: .\templates\contect.html:18
+msgid "visite project on Github"
+msgstr "زيارة المشروع على github"
+
+#: .\templates\home.html:6 .\templates\home.html:20
+msgid "home"
+msgstr "الرئيسية"
+
+#: .\templates\home.html:14
+msgid "skip to content"
+msgstr "التخطي إلى المحتوى"
+
+#: .\templates\home.html:15
+msgid "skip to footer"
+msgstr "التخطي إلى آخر الصفحة"
+
+#: .\templates\home.html:18
+msgid "navigation bar"
+msgstr "شريط التنقل"
+
+#: .\templates\home.html:27
+msgid "welcom"
+msgstr "مرحبا"
+
+#: .\templates\home.html:33
+msgid "footer"
+msgstr "آخر الصفحة"
+
+#: .\templates\home.html:34
+msgid "skip to top"
+msgstr "التخطي إلى الأعلا"
+
+#: .\templates\home.html:35
+msgid "donate"
+msgstr "تبرع"

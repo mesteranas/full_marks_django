@@ -1,0 +1,19 @@
+{%extends "home.html"%}
+{%load i18n%}
+{%block title%}{%trans "change language"%}{%endblock%}
+{%block content%}
+{%get_current_language as currentLanguage%}
+{% get_available_languages as availableLanguages%}
+{% get_language_info_list for availableLanguages as languages%}
+<form method="post">
+    {%csrf_token%}
+    <label for="language">{%trans "language"%}</label>
+    <select id="language" name="language">
+        {%for language in languages%}
+        <option value="{{language.code}}" {%if language.code == currentLanguage%} selected {% endif %}>{{language.name_local}}</option>
+        {%endfor%}
+
+    </select>
+    <button type="submit">{%trans "change"%}</button>
+</form>
+{%endblock%}

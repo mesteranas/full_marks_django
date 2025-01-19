@@ -1,0 +1,8 @@
+{% extends "home.html"%}
+{%load i18n%}
+{%block title%} {%trans "404 page not fownd"%} {%endblock%}
+{%block content%}
+<h1>404 page not fownd</h1>
+<p>{% trans "sorry the page are you looking for is not fownd try to check your URL and try later or may be this url require to login firstly"%}</p>
+<a href="{% url "homePage"%}">{% trans "return to home page "%}</a>
+{%endblock%}

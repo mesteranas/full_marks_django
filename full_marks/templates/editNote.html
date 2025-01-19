@@ -1,0 +1,14 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{% trans "edit note"%}{% endblock%}
+{% block content%}
+<h1>{% trans "edit note"%}</h1>
+<form method="post">
+    {%csrf_token%}
+    <label for="id_name">{% trans "name"%}</label>
+    <input type="text" maxlength="200" id="id_name" name="name" required value="{{note.name}}">
+    <label for="id_content">{%trans "note content"%}</label>
+    <textarea required id="id_content" name="content">{{note.content}}</textarea>
+    <button type="submit">{% trans "edit"%}</button>
+</form>
+{% endblock%}

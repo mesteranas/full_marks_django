@@ -1,0 +1,11 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{% trans "notes"%}{% endblock%}
+{% block content%}
+<h1>{% trans "notes"%}</h1>
+<a href="{% url "newNotesCategory"%}">{% trans "new category"%}</a>
+<h2>{% trans "select a category"%}</h2>
+{%for category in categories%}
+<h3><a href="{% url "noteCategoryContent" category.pk%}">{{category.name}}</a></h3>
+{% endfor%}
+{% endblock%}

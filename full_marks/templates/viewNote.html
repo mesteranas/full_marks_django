@@ -1,0 +1,12 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{{note.name}}{% endblock%}
+{% block content%}
+<h1>{{note.name}}</h1>
+<p> date : {{note.date}}</p>
+<p>category : <a href="{%url "noteCategoryContent" note.category.pk %}">{{note.category.name}}</a></p>
+<p><pre>{{note.content}}</pre></p>
+<h2>{% trans "note actions"%}</h2>
+<p><a href="{% url "editNote" note.category.pk note.pk%}">{% trans "edit note"%}</a></p>
+<p><a href="{% url "deleteNote" note.category.pk note.pk%}">{% trans "delete note "%}</a></p>
+{% endblock%}
