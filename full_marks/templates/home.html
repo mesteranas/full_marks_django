@@ -27,6 +27,7 @@
         <h1>{% trans "welcome "%} {{user.username}}</h1>
         <ul class="navBar">
             <li><a href="{% url "notesCategory"%}">{% trans "notes"%}</a></li>
+            <li><a href="{% url "questionsManigerSubjects"%}">{% trans "questions manager"%}</a></li>
         </ul>
     {% else %}
         <h1>{%trans "login" %}</h1>

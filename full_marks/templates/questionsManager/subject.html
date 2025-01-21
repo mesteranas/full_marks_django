@@ -1,0 +1,11 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{% trans "questions manager"%}{% endblock%}
+{% block content%}
+<h1>{% trans "questions manager"%}</h1>
+<a href="{% url "questionsManagerNewSubject"%}">{% trans "new subject"%}</a>
+<h2>{% trans "select a subject"%}</h2>
+{%for subject in subjects%}
+<h3><a href="{% url "questionsManagerCategory" subject.pk%}">{{subject.name}}</a></h3>
+{% endfor%}
+{% endblock%}

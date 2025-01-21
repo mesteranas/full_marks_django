@@ -1,0 +1,14 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{{category.name}}{% endblock%}
+{% block content%}
+<h1>{{category.name}}</h1>
+<a href="{% url "questionsManagerNewQuestion" category.subject.pk category.pk%}">{% trans "new question"%}</a>
+<h2>{% trans "select a question to edit"%}</h2>
+{%for question in questions%}
+<h3><a href="{% url "questionsManagerEditOrDeleteQuestion" category.subject.pk category.pk question.pk%}">{{question.title}}</a></h3>
+{% endfor%}
+<h2>{% trans "category actions"%}</h2>
+<p><a href="{% url "questionsManagerEditCategory" category.subject.pk category.pk%}">{% trans "edit"%}</a></p>
+<p><a href="{% url "questionsManagerDeleteCategory" category.subject.pk category.pk%}">{% trans "delete"%}</a></p>
+{% endblock%}

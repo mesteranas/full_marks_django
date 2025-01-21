@@ -1,0 +1,11 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{% trans "delete subject"%}{% endblock%}
+{% block content%}
+<h1>{%trans "delete subject"%}</h1>
+<p>{% trans "would you like to delete this subject?"%}</p>
+<form method="post">
+    {%csrf_token%}
+    <button type="submit">{% trans "delete"%}</button>
+</form>
+{% endblock%}

@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{% trans "new question"%}{% endblock%}
+{% block content%}
+<h1>{% trans "new question"%}</h1>
+<form method="post">
+    {%csrf_token%}
+    <label for="id_name">{% trans "question title"%}</label>
+    <input type="text" maxlength="200" id="id_name" name="title" required>
+    <label for="id_correctAnswer">{% trans "correct answer"%}</label>
+    <input type="text" name="correctAnswer" id="id_correctAnswer" required>
+    <label for="id_otherAnswers">{% trans "other answers separated by commas"%}</label>
+    <input type="text" name="otherAnswers" id="id_otherAnswers" required>
+    <button type="submit">{% trans "create"%}</button>
+</form>
+{% endblock%}
