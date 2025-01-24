@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib import auth
 from django.contrib.auth.models import User
@@ -173,3 +174,23 @@ def questionsManagerEditCategory(r,subjectID:int,categoryID:int):
         category.save()
         return redirect("questionsManagerQuestions",subjectID=subjectID,categoryID=categoryID)
     return render(r,"questionsManager/editCategory.html",{"category":category})
+@login_required
+def onNewExam(r):
+    if r.method=="POST":
+        data=r.POST
+        state=data["gui"]
+        if state=="subject":
+            subject=get_object_or_404(models.examSubject,pk=data["subject"])
+            categories=models.subjectCategory.objects.filter(subject=subject).order_by("-name")
+            return render(r,"newExam/categorySelecter.html",{"categories":categories})
+        elif state=="category":
+            return render(r,"newExam/questionsCount.html",{"categoryID":data["category"]})
+    subjects=models.examSubject.objects.all().order_by("-name")
+    return render(r,"newExam/subjectSelecter.html",{"subjects":subjects})
+def answerMaker(count:int,answered:int,trueAnswers:int,falseAnswers:int,categoryID:int):
+    category=get_object_or_404(models.subjectCategory,pk=categoryID)
+    questions=models.question.objects.filter(category=category)
+    randomQuestion=random.choice(questions)
+    answers=[randomQuestion.correctAnswer] + randomQuestion.otherAnswers.split(",")
+    newAnswers=random.sample(answers,len(answers))
+    return render(r,"newExam/questionViewer.html",{"category":category.text,"answers":newAnswers,"question":randomQuestion.title,"trueAnswer":randomQuestion.correctAnswer,"trueAnswers":trueAnswers,"falseAnswers":falseAnswers,"count":count,"answered":answered,"IDC":categoryID})

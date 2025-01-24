@@ -1,0 +1,14 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{% trans "questions count"%}{% endblock%}
+{% block content%}
+<h1>{% trans "questions count"%}</h1>
+<form method="post">
+    {%csrf_token%}
+    <input type="hidden" name="gui" value="QC">
+    <label for="id_name">{% trans "count"%}</label>
+    <input type="number" id="id_name" name="count" required max="100" min="5">
+    <input type="hidden" value="{{categoryID}}" name="IDC">
+    <button type="submit">{% trans "start"%}</button>
+</form>
+{% endblock%}

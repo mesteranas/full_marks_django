@@ -1,0 +1,17 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{% trans "select a category"%}{% endblock%}
+{% block content%}
+<h1>{% trans "select a category"%}</h1>
+<form method="post">
+    {%csrf_token%}
+    <input type="hidden" name="gui" value="category">
+    <label for="id_category">{% trans "select a category"%}</label>
+    <select name="category" id="id_category">
+        {% for category in categories%}
+        <option value="{{category.pk}}">{{category.name}}</option>
+        {%endfor%}
+    </select>
+    <button type="submit">{% trans "next"%}</button>
+</form>
+{% endblock%}

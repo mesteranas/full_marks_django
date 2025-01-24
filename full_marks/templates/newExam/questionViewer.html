@@ -1,0 +1,28 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block title%}{% trans "exam"%}{% endblock%}
+{% block content%}
+<h1>{% trans "exam"%}</h1>
+{% if category != ""%}
+<details>
+    <summary>{% trans "category text"%}</summary>
+    <p><pre>{{category}}</pre></p>
+</details>
+{%endif%}
+<p>{{answered}} - {{count}}</p>
+<p>{% trans "true answers"%} : {{trueAnswers}}</p>
+<p>{% trans "false answers"%} : {{falseAnswers}}</p>
+<p><pre>{{question}}</pre></p>
+<form method="post">
+    {%csrf_token%}
+    {% for t in [count,trueAnswers,falseAnswers,answered,trueAnswer,IDC]%}
+    <input type="hidden" name="gui" value="questionViewer">
+    <label for="id_category">{% trans "select answer"%}</label>
+    <select name="answer" id="id_category">
+        {% for answer in answers%}
+        <option value="{{answer}}">{{answer}}</option>
+        {%endfor%}
+    </select>
+    <button type="submit">{% trans "submit"%}</button>
+</form>
+{% endblock%}

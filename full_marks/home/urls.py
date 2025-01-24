@@ -25,4 +25,5 @@ urlpatterns=[
     path("questionsManager/<int:subjectID>/<int:categoryID>/<int:questionID>",views.questionsManagerEditOrDeleteQuestion,name="questionsManagerEditOrDeleteQuestion"),
     path("questionsManager/<int:subjectID>/<int:categoryID>/delete",views.questionsManagerDeleteCategory,name="questionsManagerDeleteCategory"),
     path("questionsManager/<int:subjectID>/<int:categoryID>/edit",views.questionsManagerEditCategory,name="questionsManagerEditCategory"),
+    path("exams/new",views.onNewExam,name="onNewExam"),
 ]

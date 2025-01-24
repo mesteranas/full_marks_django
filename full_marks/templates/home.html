@@ -26,6 +26,7 @@
     {%if user.is_authenticated%}
         <h1>{% trans "welcome "%} {{user.username}}</h1>
         <ul class="navBar">
+            <li><a href="{% url "onNewExam"%}">{% trans "new exam"%}</a></li>
             <li><a href="{% url "notesCategory"%}">{% trans "notes"%}</a></li>
             <li><a href="{% url "questionsManigerSubjects"%}">{% trans "questions manager"%}</a></li>
         </ul>
